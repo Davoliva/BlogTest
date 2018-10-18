@@ -6,6 +6,7 @@ use Mail;
 use App\Events\MessageWasReceived;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Mail\TuMensajeFueRecibido;
 
 class SendAutoresponder implements ShouldQueue
 {
@@ -25,9 +26,6 @@ class SendAutoresponder implements ShouldQueue
             $message->email = auth()->user()->email;
         }
 
-        // var_dump('Enviar autorespondedor);
-        Mail::send('emails.contact', ['msg' => $message], function ($m) use ($message) {
-            $m->to($message->email, $message->nombre)->subject('Tu mensaje fue recibido');
-        });
+        Mail::to($message->email)->send(new TuMensajeFueRecibido($message));
     }
 }
