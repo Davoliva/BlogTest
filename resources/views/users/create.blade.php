@@ -9,7 +9,7 @@
                     {{ session('info') }}
                 </div>
             @endif
-           <form method="POST" action="{{ route('usuarios.store') }}">
+           <form method="POST" action="{{ route('usuarios.store') }}" enctype="multipart/form-data">
                 @include('users.form', ['user' => new App\user])
 
 

@@ -2,6 +2,12 @@
 <form>
 @csrf
     <div class="form-group">
+        <label for="">
+            <input type="file" name="avatar">
+        </label>
+        {!! $errors->first('avatar', ' <span class=error>:message</span> ') !!}
+    </div>
+    <div class="form-group">
         <label class="exampleFormControlInput1" for="nombre">Nombre</label>
         <input class="form-control" type="text" name="name" value="{{ $user->name or old('name') }}">
         {!! $errors->first('name', ' <span class=error>:message</span> ') !!}

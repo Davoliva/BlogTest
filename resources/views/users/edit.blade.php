@@ -10,9 +10,10 @@
                     {{ session('info') }}
                 </div>
             @endif
-            <form action="{{ route('usuarios.update', $user->id) }}" method="POST">
+            <form action="{{ route('usuarios.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                 @method('PUT')
 
+                <img width="100px" src="{{ Storage::url($user->avatar) }}" alt="">
                 @include('users.form')
             </form>
         </div>

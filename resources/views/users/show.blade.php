@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('contenido')
+    <img width="100px" src="{{ Storage::url($user->avatar) }}" alt="">
     <h1>{{ $user->name }}</h1>
 
     <table class="table">
@@ -30,5 +31,5 @@
             <button class="btn btn-danger btn-xs" type="submit">Eliminar</button>
         </form>
     @endcan
-    
+
 @endsection
